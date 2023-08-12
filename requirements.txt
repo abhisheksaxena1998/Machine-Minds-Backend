@@ -9,3 +9,5 @@ Pillow
 sqlparse
 typing-extensions
 fastai==1.0.61
+wheel
+setuptools
