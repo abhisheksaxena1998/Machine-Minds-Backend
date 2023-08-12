@@ -2,7 +2,9 @@ asgiref
 backports.zoneinfo
 Django
 django-cors-headers
+gunicorn
 install
+packaging
 Pillow
 sqlparse
 typing-extensions
