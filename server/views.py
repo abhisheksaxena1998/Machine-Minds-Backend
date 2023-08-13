@@ -1,21 +1,19 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from PIL import Image
-import random
+from fastai.basic_train import load_learner
+from fastai.vision import *
 
 
 @csrf_exempt
 def ResolveProductCategory(request):
     if request.method == "POST":
         image = request.FILES["image"]
-        image = Image.open(image)
-        #!TODO: Implement logic for fetching product category from model
-        response_list = [
-            "Water Bottle",
-            "Home Furnishing",
-            "Accessories",
-        ]
-        response_data = {"status": "success", "category": random.choice(response_list)}
+        loaded_model = load_learner(
+            path="server/", file="product_category_predictor.h5"
+        )
+        img = open_image(image)
+        pred_class, _, _ = loaded_model.predict(img)
+        response_data = {"status": "success", "category": str(pred_class)}
         return JsonResponse(response_data)
     else:
         response_data = {"status": "error", "message": "Invalid request method"}
