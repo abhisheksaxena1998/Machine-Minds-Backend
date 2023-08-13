@@ -13,12 +13,12 @@ import base64
 @csrf_exempt
 def ResolveProductCategory(request):
     if request.method == "POST":
-        if bool(request.FILES):
+        if request.FILES.get("image"):
             image = request.FILES["image"]
             response_data = fetch_response_from_model(image)
             return JsonResponse(response_data, status=200)
-        else:
-            url = generate_image(request.POST["text_description"])
+        elif request.POST.get("search"):
+            url = generate_image(request.POST["search"])
             response = requests.get(url)
             image = BytesIO(response.content)
             image.seek(0)
