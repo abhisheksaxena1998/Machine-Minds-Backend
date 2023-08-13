@@ -8,7 +8,6 @@ packaging
 Pillow
 sqlparse
 typing-extensions
-openai
 wheel
 gunicorn
 fastai==1.0.61
