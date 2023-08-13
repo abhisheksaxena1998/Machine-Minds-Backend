@@ -7,6 +7,7 @@ from fastai.vision import open_image
 import openai
 import os
 from dotenv import load_dotenv
+import base64
 
 
 @csrf_exempt
@@ -20,7 +21,11 @@ def ResolveProductCategory(request):
             url = generate_image(request.POST["text_description"])
             response = requests.get(url)
             image = BytesIO(response.content)
+            image.seek(0)
+            image_data = image.read()
+            base64_data = base64.b64encode(image_data).decode("utf-8")
             response_data = fetch_response_from_model(image)
+            response_data.update(base64_data=base64_data)
             return JsonResponse(response_data, status=200)
 
     else:
