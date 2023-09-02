@@ -1,0 +1,1 @@
+pip install pip --upgrade && pip install pyyaml && pip install torch==1.9.0+cpu torchvision==0.10.0+cpu -f https://download.pytorch.org/whl/torch_stable.html && pip install fastai==1.0.61 && pip install -r requirements.txt --no-cache
