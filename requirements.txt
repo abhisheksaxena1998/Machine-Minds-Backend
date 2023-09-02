@@ -37,4 +37,5 @@ zipp
 python-dotenv
 wheel
 setuptools
-fastai==1.0.61
+# commenting out fast ai
+# fastai==1.0.61
