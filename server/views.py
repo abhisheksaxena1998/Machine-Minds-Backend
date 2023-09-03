@@ -35,7 +35,7 @@ def ResolveProductCategory(request):
 
 def generate_image(text):
     load_dotenv()
-    API_KEY = os.getenv("API_KEY")
+    API_KEY = os.getenv("API_KEY") or os.environ.get("API_KEY")
     openai.api_key = API_KEY
     res = openai.Image.create(
         prompt=text,
