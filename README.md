@@ -1,5 +1,13 @@
 ## Mindmart's Backend
 
+### Link to Frontend
+
+ https://github.com/abhisheksaxena1998/machine-minds-client
+
+### Link to Image Classifier:
+
+https://github.com/abhisheksaxena1998/Machine-Minds-Image-Classifier
+
 ![image](https://github.com/abhisheksaxena1998/Machine-Minds-Backend/assets/44598815/0181e9da-df1c-47a3-b286-93a5b029bdf4)
 
 ## Product classification API
